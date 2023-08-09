@@ -35,3 +35,20 @@ Lambda runs your code on a high-availability compute infrastructure and performs
  - SQS has another lambda `recognition-task-consumer` as a trigger which creates record in DynamoDB and also job at AWS Transcribe service
  - AWS Transcribe creates a file with the results which will trigger the 3rd lambda `recognition-post-processing`
  - Lambda `recognition-post-processing` reads the results finds substring and saves results at the DynamoDb table `recognition-results`
+
+### Request example
+
+```
+curl -X POST \
+  https://lvydkx8cvb.execute-api.us-east-1.amazonaws.com/dev \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: lvydkx8cvb.execute-api.us-east-1.amazonaws.com' \
+  -d '{
+    "audio_url": "s3://apalii-audio-samples/Lambda.mp3",
+    "sentences": [
+        "including server and operating system",
+        "can you hear me?"
+    ]
+}'
+```

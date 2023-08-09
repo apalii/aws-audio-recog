@@ -32,6 +32,10 @@ def lambda_handler(event, context):
     key = event['Records'][0]['s3']['object']['key']
     job_id = key.split('.')[0]
 
+    # Check file format
+    if not key.endswith('txt'):
+        return
+
     # Get the file from S3
     file_data = s3_client.get_object(Bucket=bucket, Key=key)
     json_data = file_data['Body'].read().decode('utf-8')
@@ -45,11 +49,10 @@ def lambda_handler(event, context):
     find_results = [
         find_substring(transcript, sentence) for sentence in sentences
     ]
-
     # Save results
     table_results = dynamodb.Table("recognition-results")
     data = {
-        "id": job_id,
+        "job_id": job_id,
         "audio_url": "the_audio_url",
         "sentences": find_results
     }
