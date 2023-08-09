@@ -19,8 +19,9 @@ def lambda_handler(event, context):
         MessageBody=json.dumps(message_to_sqs)
     )
 
-    return {"body": {
-        "request_id": request_id,
-        "message": "Your request was accepted successfully"
-    }
+    return {
+        "body": {
+            "request_id": request_id,
+            "message": "Your request was accepted successfully"
+        }
     }
