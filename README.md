@@ -23,9 +23,10 @@ Lambda runs your code on a high-availability compute infrastructure and performs
 1) API Gateway invoke URL: https://lvydkx8cvb.execute-api.us-east-1.amazonaws.com/dev
 2) S3 bucket `apalii-audio-samples` with audio sample
 3) S3 bucket `apalii-recognition-results` with transribes
-5) Lambda: `recognition-task-consumer`
-6) Lambda: `recognition-task-producer`
-7) Lambda: `recognition-post-processing`
+4) Lambda: `recognition-task-consumer`
+5) Lambda: `recognition-task-producer`
+6) Lambda: `recognition-post-processing`
+7) Lambda: `recognition-results`
 8) SQS queue: `recognition`
 9) DynamoDB: table `recognition-results`
 10) DynamoDB: table `recognition-results`
@@ -34,7 +35,7 @@ Lambda runs your code on a high-availability compute infrastructure and performs
  - First lambda: `recognition-task-producer` takes arguments from the POST request and creates task at the SQS
  - SQS has another lambda `recognition-task-consumer` as a trigger which creates record in DynamoDB and also job at AWS Transcribe service
  - AWS Transcribe creates a file with the results which will trigger the 3rd lambda `recognition-post-processing`
- - Lambda `recognition-post-processing` reads the results finds substring and saves results at the DynamoDb table `recognition-results`
+ - Lambda `recognition-post-processing` reads the file, finds substring and saves results at the DynamoDb table `recognition-results`
 
 ### Request example
 
@@ -51,4 +52,10 @@ curl -X POST \
         "can you hear me?"
     ]
 }'
+```
+
+### Results endpoint example
+
+```
+https://lvydkx8cvb.execute-api.us-east-1.amazonaws.com/dev/result?job_id=52fd082e-4e99-4189-9283-f420d63c5132
 ```
