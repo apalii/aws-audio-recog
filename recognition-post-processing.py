@@ -11,7 +11,7 @@ def find_substring(string, substring):
     start_index = string.find(substring)
     if start_index == -1:
         return {
-            "plain_text": string,
+            "plain_text": substring,
             "was_present": False,
             "start_word_index": None,
             "end_word_index": None
@@ -19,7 +19,7 @@ def find_substring(string, substring):
 
     end_index = start_index + len(substring) - 1
     return {
-        "plain_text": string,
+        "plain_text": substring,
         "was_present": True,
         "start_word_index": start_index,
         "end_word_index": end_index
