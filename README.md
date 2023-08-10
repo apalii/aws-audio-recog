@@ -3,9 +3,9 @@
 Serverless audio recognition task
 
 ## Resources
-<img width="834" alt="image" src="https://github.com/apalii/aws-audio-recog/assets/8919200/8a95e783-e137-4eba-bf70-4a12cc1270f8">
+![image](https://github.com/apalii/aws-audio-recog/assets/8919200/8a95e783-e137-4eba-bf70-4a12cc1270f8)
 
-<img width="624" alt="image" src="https://github.com/apalii/aws-audio-recog/assets/8919200/547d883e-1f45-41c5-aa10-6012018fd843">
+![image](https://github.com/apalii/aws-audio-recog/assets/8919200/547d883e-1f45-41c5-aa10-6012018fd843)
 
 ![image](https://github.com/apalii/aws-audio-recog/assets/8919200/d15846be-fb7d-4ee9-a0cb-82a46a5af46e)
 ![image](https://github.com/apalii/aws-audio-recog/assets/8919200/dc7a8cf7-4f43-4b58-8b89-d1851330a296)
